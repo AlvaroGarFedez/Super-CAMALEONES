@@ -1,0 +1,973 @@
+/* ------------------------ RESET ------------------------ */
+
+* {
+    background-color: transparent;
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: none;
+
+    font: inherit;
+    font-size: 100%;
+    font-family: sans-serif;
+    color: inherit;
+    line-height: 1.5;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+    display: inline-block;
+}
+
+:before, :after {
+    display: inline-block;
+}
+
+/* ---------------------- END RESET ---------------------- */
+
+
+/* ------------------- PARAMETRIZACIÓN ------------------- */
+
+:root {
+
+    /* TAMAÑOS */
+    --maxWidth-icon-XS: 1.8rem;
+    --maxWidth-kodamaLogo: 18rem;
+    --maxWidth-kodama: 15rem;
+    --maxWidth-section-bigScreen: 1440px;
+    --maxWidth-landingText: 700px;
+    --maxWidth-article: 900px;
+    --maxWidth-about: 500px;
+    
+    --maxHeight-section-bigScreen: 1200px;
+    
+    --size-number: 1.8rem;
+    --size-number-active: 1.9rem;
+    --maxSize-articleImage: 500px;
+
+    /* DIMENSIONES */
+    --padding-S: 0.5rem;
+    --padding-M: 1rem;
+    --padding-L: 2rem;
+
+    --borderWidth-XL: 4px;
+    --borderWidth-L: 2px;
+    --borderRadius-M: 0.5rem;
+    --borderRadius-L: 1rem;
+    --borderRadius-round: 10rem;
+
+    --gap-S: 1rem;
+    --gap-M: 2rem;
+    --gap-L: 3rem;
+
+    /* FUENTES */
+    --fontSize-S: 0.8em;
+    --fontSize-M: 1em;
+    --fontSize-L: 1.1em;
+    --fontSize-XL: 1.3em;
+    --fontSize-XXL: 2em;
+    --fontSize-3XL: 3em;
+    --fontSize-4XL: 5em;
+
+    --fontWidth-bold: 600;
+    --fontWidth-bolder: 900;
+
+    --letterSpacing-S: 0.1em;
+    --letterSpacing-M: 0.5em;
+
+    /* COLORES */
+    --color-mainYellow: #F9E000;
+    --svgFilter-mainYellow: invert(97%) sepia(68%) saturate(3713%) hue-rotate(344deg) brightness(92%) contrast(112%);
+    --color-mainTurquoise: #53E2D8;
+    --svgFilter-mainTurquoise: invert(71%) sepia(93%) saturate(287%) hue-rotate(119deg) brightness(97%) contrast(86%);
+    --color-mainGreen: #5AD32E;
+    --svgFilter-mainGreen: invert(65%) sepia(22%) saturate(2145%) hue-rotate(60deg) brightness(112%) contrast(71%);
+    --color-lightGreen: #DDF8BF;
+    --color-darkGreen: #3C5014;
+    --svgFilter-darkGreen: invert(24%) sepia(25%) saturate(1349%) hue-rotate(38deg) brightness(98%) contrast(86%);
+    --color-mainOrange: #FF6A00;
+    --svgFilter-mainOrange: invert(46%) sepia(91%) saturate(3331%) hue-rotate(5deg) brightness(106%) contrast(105%);
+    --color-mainPurple: #742f58;
+    --svgFilter-mainPurple: invert(24%) sepia(21%) saturate(1605%) hue-rotate(272deg) brightness(95%) contrast(94%);
+    --color-mainRed: #CC0A04;
+    --svgFilter-mainRed: invert(15%) sepia(39%) saturate(6802%) hue-rotate(352deg) brightness(107%) contrast(114%);
+    --color-mainWhite: #FFFFFF;
+    --color-mainBlack: #000000;
+    --patina-dark: rgba(0, 0, 0, 0.3);
+    --patina-light: rgba(255, 255, 255, 0.5);
+
+    /* TIEMPOS */
+    --transitionDuration-S: 0.3s;
+    --transitionDuration-L: 1s;
+
+    /* OTROS PARÁMETROS */
+    --parameter-overtitleSizeFactor: 0.8;
+    --translation-appearingItem-M: 2rem;
+    --translation-appearingItem-L: 5rem;
+
+}
+
+/* ----------------- FIN PARAMETRIZACIÓN ----------------- */
+
+
+/* ------------------ ESTILOS GENERALES ------------------ */
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Para el responsive en pantallas grandes */
+.subcontainer {
+    width: 100%;
+    max-width: var(--maxWidth-section-bigScreen);
+
+    margin: auto;
+}
+
+.h, .p {
+    color: var(--color-darkGreen);
+}
+
+.h--1 {
+    text-align: center;
+    font-size: var(--fontSize-XXL);
+    font-weight: var(--fontWidth-bold);
+    letter-spacing: var(--letterSpacing-M);
+}
+
+.h--2 {
+    text-align: center;
+    font-size: var(--fontSize-XL);
+    font-weight: var(--fontWidth-bold);
+    text-decoration: underline var(--borderWidth-L);
+}
+
+.h--3 {
+    font-size: var(--fontSize-L);
+}
+
+.p--S {
+    opacity: 0.8;
+
+    font-size: var(--fontSize-S);
+}
+
+.p--M {
+    font-size: var(--fontSize-M);
+}
+
+.p--L {
+    font-size: var(--fontSize-L);
+}
+
+/* ---------------- FIN ESTILOS GENERALES ---------------- */
+
+
+/* ------------------- BOTÓN PRIMARIO -------------------- */
+/* -------------------- (index, home) -------------------- */
+
+.primaryButton {
+    background-color: var(--color-mainGreen);
+
+    padding: var(--padding-M) var(--padding-L);
+    border-radius: var(--borderRadius-round);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-S);
+
+    transition: all var(--transitionDuration-S);
+}
+
+.primaryButton .primaryButton__text {
+    font-size: var(--fontSize-L);
+    font-weight: var(--fontWidth-bold);
+    letter-spacing: var(--letterSpacing-S);
+    color: var(--color-darkGreen);
+}
+
+.primaryButton .primaryButton__icon {
+    max-width: var(--maxWidth-icon-XS);
+
+    margin-top: -2px;
+
+    filter: var(--svgFilter-darkGreen);
+}
+
+.primaryButton:hover {
+    background-color: var(--color-mainYellow);
+
+    cursor: pointer;
+}
+
+/* ----------------- FIN BOTÓN PRIMARIO ------------------ */
+
+
+/* ------------------ BOTÓN SECUNDARIO ------------------- */
+/* --- (vision, tongue, skin, legs, tail, more, about) --- */
+
+.secondaryButton {
+    padding: var(--padding-S) var(--padding-M);
+    border: solid var(--borderWidth-L) transparent;
+    border-radius: var(--borderRadius-round);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-S);
+
+    transition: all var(--transitionDuration-S);
+}
+
+.secondaryButton .secondaryButton__icon {
+    max-width: var(--maxWidth-icon-XS);
+
+    margin-top: -2px;
+
+    filter: var(--svgFilter-darkGreen);
+}
+
+.secondaryButton .secondaryButton__text {
+    font-size: var(--fontSize-L);
+    font-weight: var(--fontWidth-bold);
+    letter-spacing: var(--letterSpacing-S);
+    color: var(--color-darkGreen);
+}
+
+.secondaryButton:hover {
+    border-color: var(--color-darkGreen);
+
+    cursor: pointer;
+}
+
+/* ---------------- FIN BOTÓN SECUNDARIO ----------------- */
+
+
+/* --------------- TÍTULO SUPERCAMALEONES ---------------- */
+/* -------------------- (index, home) -------------------- */
+
+.mainTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mainTitle .mainTitle__overtitle {
+    font-weight: var(--fontWidth-bolder);
+    line-height: 1;
+    color: var(--color-darkGreen);
+    -webkit-text-stroke: var(--borderWidth-L) var(--color-darkGreen);
+    text-decoration: none;
+
+    transition: all var(--transitionDuration-L) linear;
+}
+
+.mainTitle .mainTitle__title {
+    font-weight: var(--fontWidth-bolder);
+    line-height: 1;
+    color: var(--color-darkGreen);
+    -webkit-text-stroke: var(--borderWidth-L) var(--color-darkGreen);
+
+    transition: all var(--transitionDuration-L) linear;
+}
+
+/* ------------- FIN TÍTULO SUPERCAMALEONES -------------- */
+
+
+/* ------------- LOGOTIPO PROYECTO KODAMA ---------------- */
+/* -------------------- (index, home) -------------------- */
+
+.kodamaLogo {
+    padding: 0 var(--padding-M);
+
+    display: flex;
+    align-items: center;
+
+    transition: all var(--transitionDuration-L);
+}
+
+.kodamaLogo .kodamaLogo__image {
+    max-width: var(--maxWidth-kodamaLogo);
+
+    filter: var(--svgFilter-mainGreen);
+
+    transition: all var(--transitionDuration-L);
+}
+
+.kodamaLogo:hover {
+    background-color: var(--color-mainWhite);
+
+    border-radius: var(--borderRadius-round);
+    box-shadow: 0 0 8px 5px var(--color-mainWhite);
+}
+
+.kodamaLogo:hover .kodamaLogo__image {
+    filter: none;
+}
+
+/* ------------ FIN LOGOTIPO PROYECTO KODAMA ------------- */
+
+
+/* ----------------------- FOOTER ------------------------ */
+/* -------------------- (index, home) -------------------- */
+
+.siteFooter {
+    background-color: var(--color-mainTurquoise);
+    background-image: linear-gradient(var(--patina-dark),var(--patina-dark));
+
+    width: 100%;
+
+    padding: var(--padding-M);
+}
+
+.siteFooter .siteFooter__subcontainer {
+    display: flex;
+    justify-content: center;
+}
+
+.siteFooter .siteFooter__subcontainer .siteFooter__subcontainer__text {
+    opacity: 1;
+
+    color: var(--color-mainYellow);
+}
+
+.siteFooter .siteFooter__subcontainer .siteFooter__subcontainer__text .siteFooter__subcontainer__text--selected {
+    font-weight: var(--fontWidth-bold);
+}
+
+/* --------------------- FIN FOOTER ---------------------- */
+
+
+/* ---------------- CABECERA DE ARTÍCULO ----------------- */
+/* --- (vision, tongue, skin, legs, tail, more, about) --- */
+
+#backLinkHeader {
+    width: 100%;
+    z-index: 1;
+    position: sticky;
+    top: 0;
+}
+ 
+.backLinkHeader {
+    padding: var(--padding-S) var(--padding-M);
+
+    display: flex;
+}
+
+/* -------------- FIN CABECERA DE ARTÍCULO --------------- */
+
+
+/* ------------------ PÁGINA DE INICIO ------------------- */
+/* ----------------------- (index) ----------------------- */
+
+.landing {
+    background-image: linear-gradient(var(--color-lightGreen) 60%, var(--color-mainTurquoise));
+
+    /* Para quenos haga caso el height: 100%; del subcontainer, transformamos el contenedor en una rejilla de una sola celda */
+    display: grid;
+}
+
+.landing .landing__subcontainer {
+    height: 100%;
+    max-height: var(--maxHeight-section-bigScreen);
+    
+    display: flex;
+    justify-content: center;
+}
+
+.landing .landing__subcontainer .landing__subcontainer__content {
+    max-width: var(--maxWidth-landingText);
+    
+    padding: var(--padding-M);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-S);
+}
+
+.landing .landing__subcontainer .landing__subcontainer__content .landing__subcontainer__content__mainContent {
+    padding: var(--padding-M);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-M);
+}
+
+/* Cartel SUPER-CAMALEONES */
+.landing .landing__subcontainer .landing__subcontainer__content .landing__subcontainer__content__mainContent .landing__subcontainer__content__mainContent__title__overtitle {
+    font-size: calc(var(--parameter-overtitleSizeFactor) * var(--fontSize-4XL));
+}
+
+.landing .landing__subcontainer .landing__subcontainer__content .landing__subcontainer__content__mainContent .landing__subcontainer__content__mainContent__title__title {
+    font-size: var(--fontSize-4XL);
+}
+
+/* Texto */
+.landing .landing__subcontainer .landing__subcontainer__content .landing__subcontainer__content__mainContent .landing__subcontainer__content__mainContent__text {
+    padding-top: var(--padding-M);
+}
+
+/* Botón CONTINUAR */
+.landing .landing__subcontainer .landing__subcontainer__content .landing__subcontainer__content__mainContent .landing__subcontainer__content__mainContent__button {
+    align-self: start;
+}
+
+/* Camaleón gigante */
+.landing .landing__subcontainer .landing__subcontainer__imageContainer {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+.landing .landing__subcontainer .landing__subcontainer__imageContainer .landing__subcontainer__imageContainer__image {
+    scale: -1 1;
+
+    filter: var(--svgFilter-darkGreen);
+
+    transition: all var(--transitionDuration-L) linear;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+    .landing .landing__subcontainer .landing__subcontainer__imageContainer {
+        display: none;
+    }
+}
+
+@media (max-width: 700px) {
+    .landing .landing__subcontainer .landing__subcontainer__content .landing__subcontainer__content__mainContent .landing__subcontainer__content__mainContent__title__overtitle {
+        font-size: calc(var(--parameter-overtitleSizeFactor) * var(--fontSize-3XL));
+    }
+    .landing .landing__subcontainer .landing__subcontainer__content .landing__subcontainer__content__mainContent .landing__subcontainer__content__mainContent__title__title {
+        font-size: var(--fontSize-3XL);
+    }
+}
+
+@media (max-width: 450px) {
+    .landing .landing__subcontainer .landing__subcontainer__content .landing__subcontainer__content__mainContent .landing__subcontainer__content__mainContent__title__overtitle {
+        font-size: calc(var(--parameter-overtitleSizeFactor) * var(--fontSize-XXL));
+    }
+    .landing .landing__subcontainer .landing__subcontainer__content .landing__subcontainer__content__mainContent .landing__subcontainer__content__mainContent__title__title {
+        font-size: var(--fontSize-XXL);
+    }
+    .landing .landing__subcontainer .landing__subcontainer__content .landing__subcontainer__content__mainContent .landing__subcontainer__content__mainContent__text {
+        font-size: var(--fontSize-M);
+    }
+    .landing .landing__subcontainer .landing__subcontainer__content .landing__subcontainer__content__mainContent {
+        gap: var(--gap-S);
+    }
+}
+
+/* ---------------- FIN PÁGINA DE INICIO ----------------- */
+
+
+/* ---------------- FIN PÁGINA PRINCIPAL ----------------- */
+/* ----------------------- (home) ------------------------ */
+
+.home {
+    background-image: linear-gradient(var(--color-lightGreen) 60%, var(--color-mainTurquoise));
+
+    /* Para quenos haga caso el height: 100%; del subcontainer, transformamos el contenedor en una rejilla de una sola celda */
+    display: grid;
+}
+
+.home .home__subcontainer {
+    height: 100%;
+    max-height: var(--maxHeight-section-bigScreen);
+
+    padding: var(--padding-M);
+
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto 1fr auto;
+    /* Otro ejemplo: "auto 2fr 1fr" quiere decir "el primero ocupa lo que necesite y, luego, el segundo debe ocupar el doble que el tercero." */
+    gap: var(--gap-M);
+}
+
+/* Logotipo Proyecto Kodama */
+.home .home__subcontainer .home__subcontainer__gridElement.home__subcontainer__gridElement--kodamaLogo {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    justify-self: center;
+    align-self: center;
+}
+
+/* Cartel SUPER-CAMALEONES */
+.home .home__subcontainer .home__subcontainer__gridElement.home__subcontainer__gridElement--title {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    justify-self: center;
+    align-self: center;
+}
+
+.home .home__subcontainer .home__subcontainer__gridElement .home__subcontainer__gridElement__title .home__subcontainer__gridElement__title__overtitle {
+    font-size: calc(var(--parameter-overtitleSizeFactor) * var(--fontSize-3XL));
+}
+
+.home .home__subcontainer .home__subcontainer__gridElement .home__subcontainer__gridElement__title .home__subcontainer__gridElement__title__title {
+    font-size: var(--fontSize-3XL);
+}
+
+/* Lista de superpoderes */
+.home .home__subcontainer .home__subcontainer__gridElement.home__subcontainer__gridElement--list {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    align-self: center;
+}
+
+.home .home__subcontainer .home__subcontainer__gridElement .home__subcontainer__gridElement__listTitle {
+    padding: var(--padding-M) var(--padding-L);
+}
+
+.home .home__subcontainer .home__subcontainer__gridElement .home__subcontainer__gridElement__list {
+    width: fit-content;
+}
+
+.home .home__subcontainer .home__subcontainer__gridElement .home__subcontainer__gridElement__list .home__subcontainer__gridElement__list__element {
+    width: 100%;
+    
+    padding: var(--padding-M) var(--padding-L);
+    border-radius: var(--borderRadius-round);
+
+    transition: all var(--transitionDuration-L);
+}
+
+.home .home__subcontainer .home__subcontainer__gridElement .home__subcontainer__gridElement__list .home__subcontainer__gridElement__list__element .home__subcontainer__gridElement__list__element__link {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-S);
+
+    transition: all var(--transitionDuration-L);
+}
+
+.home .home__subcontainer .home__subcontainer__gridElement .home__subcontainer__gridElement__list .home__subcontainer__gridElement__list__element .home__subcontainer__gridElement__list__element__link .home__subcontainer__gridElement__list__element__link__number {
+    width: var(--size-number);
+    height: var(--size-number);
+    position: relative;
+
+    border: solid var(--borderWidth-L) var(--color-darkGreen);
+    border-radius: var(--borderRadius-round);
+
+    text-align: center;
+    font-size: var(--fontSize-L);
+    font-weight: var(--fontWidth-bold);
+    color: var(--color-darkGreen);
+}
+
+.home .home__subcontainer .home__subcontainer__gridElement .home__subcontainer__gridElement__list .home__subcontainer__gridElement__list__element .home__subcontainer__gridElement__list__element__link .home__subcontainer__gridElement__list__element__link__number::before {
+    content: "";
+
+    background-color: var(--color-darkGreen);
+
+    width: var(--borderWidth-L);
+    height: 2.25rem;
+    position: absolute;
+    bottom: 100%;
+    left: calc(50% - var(--borderWidth-L) / 2);
+}
+
+.home .home__subcontainer .home__subcontainer__gridElement .home__subcontainer__gridElement__list .home__subcontainer__gridElement__list__element:first-child .home__subcontainer__gridElement__list__element__link .home__subcontainer__gridElement__list__element__link__number::before {
+    display: none;
+}
+
+.home .home__subcontainer .home__subcontainer__gridElement .home__subcontainer__gridElement__list .home__subcontainer__gridElement__list__element .home__subcontainer__gridElement__list__element__link .home__subcontainer__gridElement__list__element__link__title.home__subcontainer__gridElement__list__element__link__title--selected {
+    font-weight: var(--fontWidth-bold);
+}
+
+.home .home__subcontainer .home__subcontainer__gridElement .home__subcontainer__gridElement__list .home__subcontainer__gridElement__list__element.active {
+    width: 110%;
+
+    background-color: var(--color-mainYellow);
+
+    cursor: pointer;
+}
+
+.home .home__subcontainer .home__subcontainer__gridElement .home__subcontainer__gridElement__list .home__subcontainer__gridElement__list__element.active .home__subcontainer__gridElement__list__element__link {
+    gap: var(--gap-L);
+}
+
+/* Camaleón con pines */
+.home .home__subcontainer .home__subcontainer__gridElement.home__subcontainer__gridElement--map {
+    grid-column: 2/4;
+    grid-row: 2/3;
+    align-self: center;
+    /* Para quenos haga caso el max-height del subcontenedor y el height del elemento, transformamos el contenedor en una rejilla de una sola celda */
+    display: grid;
+}
+
+.home .home__subcontainer .home__subcontainer__gridElement .home__subcontainer__gridElement__map {
+    /* Para los navegadores en los que el ancho no se ajusta automáticamente al contenido */
+    max-width: 40.6vw;
+    /* vw para que crezca en pantallas grandes */
+    max-height: 28.85vw;
+    position: relative;
+
+    /* % para que no crezca demasiado en pantallas grandes */
+    padding-left: 7%;
+
+    justify-self: start;
+}
+
+.home .home__subcontainer .home__subcontainer__gridElement .home__subcontainer__gridElement__map .home__subcontainer__gridElement__map__image {
+    height: 100%;
+
+    filter: var(--svgFilter-darkGreen);
+}
+
+.home .home__subcontainer .home__subcontainer__gridElement .home__subcontainer__gridElement__map .home__subcontainer__gridElement__map__pin {
+    background-color: var(--color-mainYellow);
+    opacity: 0.75;
+
+    width: var(--size-number);
+    height: var(--size-number);
+    position: absolute;
+
+    border: solid var(--borderWidth-XL) var(--color-darkGreen);
+    border-radius: var(--borderRadius-round);
+
+    transition: all var(--transitionDuration-S);
+}
+
+.home .home__subcontainer .home__subcontainer__gridElement .home__subcontainer__gridElement__map .home__subcontainer__gridElement__map__pin.home__subcontainer__gridElement__map__pin--1 {
+    top: 45%;
+    left: 87%;
+}
+
+.home .home__subcontainer .home__subcontainer__gridElement .home__subcontainer__gridElement__map .home__subcontainer__gridElement__map__pin.home__subcontainer__gridElement__map__pin--2 {
+    top: 65%;
+    left: 90%;
+}
+
+.home .home__subcontainer .home__subcontainer__gridElement .home__subcontainer__gridElement__map .home__subcontainer__gridElement__map__pin.home__subcontainer__gridElement__map__pin--3 {
+    top: 0%;
+    left: 65%;
+}
+
+.home .home__subcontainer .home__subcontainer__gridElement .home__subcontainer__gridElement__map .home__subcontainer__gridElement__map__pin.home__subcontainer__gridElement__map__pin--4 {
+    top: 40%;
+    left: 60%;
+}
+
+.home .home__subcontainer .home__subcontainer__gridElement .home__subcontainer__gridElement__map .home__subcontainer__gridElement__map__pin.home__subcontainer__gridElement__map__pin--5 {
+    top: 30%;
+    left: 23%;
+}
+
+.home .home__subcontainer .home__subcontainer__gridElement .home__subcontainer__gridElement__map .home__subcontainer__gridElement__map__pin.active {
+    opacity: 1;
+
+    width: var(--size-number-active);
+    height: var(--size-number-active);
+
+    border-color: var(--color-mainGreen);
+    box-shadow: 0 0 1.25rem 0.5rem var(--color-lightGreen);
+}
+
+/* Botón MÁS INFORMACIÓN */
+.home .home__subcontainer .home__subcontainer__gridElement.home__subcontainer__gridElement--button {
+    grid-column: 3/4;
+    grid-row: 3/4;
+    justify-self: center;
+    align-self: center;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+    .home .home__subcontainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .home .home__subcontainer .home__subcontainer__gridElement.home__subcontainer__gridElement--map {
+        display: none;
+    }
+}
+
+@media (max-width: 425px) {
+    .home .home__subcontainer .home__subcontainer__gridElement .home__subcontainer__gridElement__title .home__subcontainer__gridElement__title__overtitle {
+        font-size: calc(var(--parameter-overtitleSizeFactor) * var(--fontSize-XXL));
+    }
+    .home .home__subcontainer .home__subcontainer__gridElement .home__subcontainer__gridElement__title .home__subcontainer__gridElement__title__title {
+        font-size: var(--fontSize-XXL);
+    }
+}
+
+/* ---------------- FIN PÁGINA PRINCIPAL ----------------- */
+
+
+/* ----------------------- PAPERS ------------------------ */
+/* ------ (vision, tongue, skin, legs, tail, more) ------- */
+
+.paper {
+    background-image: linear-gradient(var(--color-lightGreen) 60%, var(--color-mainTurquoise));
+
+    padding: var(--padding-L);
+}
+
+.paper .paper__subcontainer {
+    background-color: var(--color-lightGreen);
+    background-image: linear-gradient(var(--patina-light), var(--patina-light));
+
+    padding: var(--padding-M);
+    border-radius: var(--borderRadius-L);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-M);
+}
+
+/* Botón VOLVER */
+.paper .paper__subcontainer .backLinkHeader .backLinkHeader__subcontainer .backLinkHeader__subcontainer__button {
+    background-color: var(--color-lightGreen);
+    background-image: linear-gradient(var(--patina-light), var(--patina-light));
+}
+
+/* Artículo */
+.paper .paper__subcontainer .paper__subcontainer__article {
+    max-width: var(--maxWidth-article);
+
+    padding: var(--padding-M);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-M);
+}
+
+/* Título del artículo */
+.paper .paper__subcontainer .paper__subcontainer__article .paper__subcontainer__article__title {
+    opacity: 0;
+
+    transform: translateY(var(--translation-appearingItem-M));
+
+    padding: var(--padding-S);
+
+    transition: all var(--transitionDuration-L);
+}
+
+.paper .paper__subcontainer .paper__subcontainer__article .paper__subcontainer__article__title.visible {
+    opacity: 1;
+
+    transform: translate(0);
+}
+
+.paper .paper__subcontainer .paper__subcontainer__article .paper__subcontainer__article__content {
+    padding: 0 var(--padding-S);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-M);
+}
+
+/* Párrafos del artículo */
+.paper .paper__subcontainer .paper__subcontainer__article .paper__subcontainer__article__content .paper__subcontainer__article__content__text {
+    opacity: 0;
+
+    transform: translateX(var(--translation-appearingItem-L));
+
+    transition: all var(--transitionDuration-L);
+}
+
+.paper .paper__subcontainer .paper__subcontainer__article .paper__subcontainer__article__content .paper__subcontainer__article__content__text.visible {
+    opacity: 1;
+
+    transform: translate(0);
+}
+
+/* Fotografías del artículo */
+.paper .paper__subcontainer .paper__subcontainer__article .paper__subcontainer__article__content .paper__subcontainer__article__content__imageContainer {
+    opacity: 0;
+
+    max-width: var(--maxSize-articleImage);
+
+    transform: translateX(calc(-1 * var(--translation-appearingItem-L)));
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-S);
+
+    transition: all var(--transitionDuration-L);
+}
+
+.paper .paper__subcontainer .paper__subcontainer__article .paper__subcontainer__article__content .paper__subcontainer__article__content__imageContainer .paper__subcontainer__article__content__imageContainer__picture__image {
+    max-height: var(--maxSize-articleImage);
+
+    border-radius: var(--borderRadius-M);
+}
+
+.paper .paper__subcontainer .paper__subcontainer__article .paper__subcontainer__article__content .paper__subcontainer__article__content__imageContainer.visible {
+    opacity: 1;
+
+    transform: translate(0);
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .paper {
+        padding: var(--padding-L) var(--padding-M);
+    }
+    .paper .paper__subcontainer {
+        padding: var(--padding-M) 0;
+    }
+}
+
+/* --------------------- FIN PAPERS ---------------------- */
+
+
+/* -------------- SOBRE EL PROYECTO KODAMA --------------- */
+/* ----------------------- (more) ------------------------ */
+
+/* Cabecera */
+.kpHeader .backLinkHeader .backLinkHeader__subcontainer .backLinkHeader__subcontainer__button {
+    background-color: var(--color-mainWhite);
+}
+
+.kpHeader .backLinkHeader .backLinkHeader__subcontainer .backLinkHeader__subcontainer__button .backLinkHeader__subcontainer__button__text {
+    color: var(--color-mainBlack);
+}
+
+.kpHeader .backLinkHeader .backLinkHeader__subcontainer .backLinkHeader__subcontainer__button .backLinkHeader__subcontainer__button__icon {
+    filter: none;
+}
+
+.kpHeader .backLinkHeader .backLinkHeader__subcontainer .backLinkHeader__subcontainer__button:hover {
+    border-color: var(--color-mainBlack);
+}
+
+/* Contenido de la página */
+.about {
+    padding: var(--padding-L);
+}
+
+.about .about__subcontainer {
+    padding: var(--padding-M);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-M);
+}
+
+/* Título */
+.about .about__subcontainer .about__subcontainer__title {
+    color: var(--color-mainBlack);
+}
+
+/* Decoración */
+.about .about__subcontainer .about__subcontainer__decoration {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: var(--gap-S);
+}
+
+.about .about__subcontainer .about__subcontainer__decoration .about__subcontainer__decoration__line {
+    background-color: var(--color-mainBlack);
+
+    width: 100%;
+    height: var(--borderWidth-L);
+}
+
+.about .about__subcontainer .about__subcontainer__decoration .about__subcontainer__decoration__icon {
+    max-width: var(--maxWidth-icon-XS);
+}
+
+/* Contenido */
+.about .about__subcontainer .about__subcontainer__content {
+    padding: var(--padding-M);
+
+    display: flex;
+    justify-content: center;
+    gap: var(--gap-L);
+}
+
+.about .about__subcontainer .about__subcontainer__content .about__subcontainer__content__imageContainer {
+    max-width: var(--maxWidth-kodama);
+
+    position: relative;
+
+    display: flex;
+    align-items: end;
+}
+
+.about .about__subcontainer .about__subcontainer__content .about__subcontainer__content__imageContainer .about__subcontainer__content__imageContainer__image {
+    position: sticky;
+    bottom: var(--padding-M);
+
+    transition: all var(--transitionDuration-L);
+}
+
+.about .about__subcontainer .about__subcontainer__content .about__subcontainer__content__imageContainer .about__subcontainer__content__imageContainer__image.about__subcontainer__content__imageContainer__image--second {
+    opacity: 0;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.about .about__subcontainer .about__subcontainer__content .about__subcontainer__content__textContainer {
+    max-width: var(--maxWidth-about);
+    
+    padding: 0 var(--padding-M);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-S);
+}
+
+.about .about__subcontainer .about__subcontainer__content .about__subcontainer__content__textContainer .about__subcontainer__content__textContainer__text {
+    color: var(--color-mainBlack);
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+    .about .about__subcontainer .about__subcontainer__content .about__subcontainer__content__imageContainer {
+        display: none;
+    }
+}
+
+@media (max-width: 400px) {
+    .about {
+        padding: 0;
+    }
+}
+
+/* Footer */
+.kpFooter .siteFooter {
+    background-color: white;
+}
+
+.kpFooter .siteFooter .siteFooter__subcontainer .siteFooter__subcontainer__text {
+    color: var(--color-mainWhite);
+}
+
+/* ------------ FIN SOBRE EL PROYECTO KODAMA ------------- */
